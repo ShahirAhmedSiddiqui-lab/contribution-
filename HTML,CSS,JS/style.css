@@ -1,0 +1,690 @@
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+
+  min-height: 100vh;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  overflow: hidden;
+
+  background: #f3f4f6;
+
+  position: relative;
+}
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+:root {
+  --primary: #ff4b4b;
+  --primary-dark: #d81b2b;
+
+  --white: #ffffff;
+
+  --text: #202124;
+
+  --gray: #777;
+
+  --light: #f7f7f7;
+
+  --shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
+}
+
+/* =====================================================
+   BACKGROUND
+===================================================== */
+
+.background {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: -5;
+
+  overflow: hidden;
+
+  background: linear-gradient(135deg, #fff5f5, #ffffff, #fff0f0);
+}
+
+.blob {
+  position: absolute;
+
+  border-radius: 50%;
+
+  filter: blur(80px);
+
+  animation: float 12s ease-in-out infinite;
+}
+
+.blob1 {
+  width: 420px;
+
+  height: 420px;
+
+  top: -140px;
+
+  left: -120px;
+
+  background: rgba(255, 75, 75, 0.3);
+}
+
+.blob2 {
+  width: 520px;
+
+  height: 520px;
+
+  right: -170px;
+
+  bottom: -170px;
+
+  background: rgba(255, 150, 150, 0.25);
+
+  animation-delay: 5s;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(40px, -35px);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+/* =====================================================
+   MAIN CARD
+===================================================== */
+
+.container {
+  width: 1000px;
+
+  max-width: 95%;
+
+  height: 650px;
+
+  display: flex;
+
+  overflow: hidden;
+
+  border-radius: 28px;
+
+  background: rgba(255, 255, 255, 0.82);
+
+  backdrop-filter: blur(18px);
+
+  box-shadow: var(--shadow);
+}
+
+/* =====================================================
+   LEFT PANEL
+===================================================== */
+
+.left-panel {
+  width: 40%;
+
+  position: relative;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  text-align: center;
+
+  color: white;
+
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+
+  overflow: hidden;
+}
+
+/* Decorative circles */
+
+.left-panel::before {
+  content: "";
+
+  position: absolute;
+
+  width: 250px;
+
+  height: 250px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  top: -70px;
+
+  right: -70px;
+}
+
+.left-panel::after {
+  content: "";
+
+  position: absolute;
+
+  width: 180px;
+
+  height: 180px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  left: -50px;
+
+  bottom: -50px;
+}
+
+.content {
+  width: 80%;
+
+  z-index: 2;
+}
+
+.content h1 {
+  font-size: 42px;
+
+  font-weight: 700;
+
+  margin-bottom: 18px;
+}
+
+.content p {
+  line-height: 1.8;
+
+  opacity: 0.92;
+
+  margin-bottom: 35px;
+}
+
+.content button {
+  width: 190px;
+
+  height: 55px;
+
+  border: none;
+
+  border-radius: 50px;
+
+  cursor: pointer;
+
+  background: white;
+
+  color: var(--primary);
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  transition: 0.35s;
+}
+
+.content button:hover {
+  transform: translateY(-4px);
+
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* =====================================================
+   RIGHT PANEL
+===================================================== */
+
+.right-panel {
+  flex: 1;
+
+  position: relative;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  padding: 60px;
+
+  overflow: hidden;
+}
+
+/* =====================================================
+   FORM
+===================================================== */
+
+.form {
+  position: absolute;
+
+  width: 100%;
+
+  max-width: 400px;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transform: translateX(60px);
+
+  transition:
+    opacity 0.55s ease,
+    transform 0.55s ease;
+}
+
+/* Active Form */
+
+.form.active {
+  opacity: 1;
+
+  pointer-events: auto;
+
+  transform: translateX(0);
+}
+
+/* Hidden Login */
+
+.form.hide {
+  opacity: 0;
+
+  pointer-events: none;
+
+  transform: translateX(-60px);
+}
+
+/* =====================================================
+   HEADINGS
+===================================================== */
+
+.form h2 {
+  font-size: 34px;
+
+  color: var(--text);
+
+  font-weight: 700;
+
+  margin-bottom: 35px;
+}
+
+/* =====================================================
+   INPUT GROUP
+===================================================== */
+
+.input-group {
+  position: relative;
+
+  margin-bottom: 24px;
+}
+
+/* Input */
+
+.input-group input {
+  width: 100%;
+
+  height: 58px;
+
+  border: none;
+
+  outline: none;
+
+  border-radius: 14px;
+
+  background: #f5f5f5;
+
+  padding-left: 50px;
+
+  padding-right: 50px;
+
+  font-size: 15px;
+
+  transition: 0.3s;
+}
+
+/* Focus */
+
+.input-group input:focus {
+  background: white;
+
+  box-shadow: 0 0 0 3px rgba(255, 75, 75, 0.18);
+}
+
+/* Left Icon */
+
+.input-group > i {
+  position: absolute;
+
+  left: 18px;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  color: #999;
+
+  transition: 0.3s;
+}
+
+/* Floating Label */
+
+.input-group label {
+  position: absolute;
+
+  left: 50px;
+
+  top: 18px;
+
+  color: #888;
+
+  pointer-events: none;
+
+  transition: 0.25s;
+}
+
+/* Float Animation */
+
+.input-group input:focus + label,
+.input-group input:valid + label {
+  top: -10px;
+
+  left: 18px;
+
+  font-size: 12px;
+
+  padding: 0 8px;
+
+  background: white;
+
+  color: var(--primary);
+}
+
+/* Change icon color */
+
+.input-group input:focus ~ i,
+.input-group:focus-within > i {
+  color: var(--primary);
+}
+
+/* =====================================================
+   PASSWORD TOGGLE
+===================================================== */
+
+.toggle-password {
+  position: absolute;
+
+  right: 18px;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  cursor: pointer;
+
+  color: #999;
+
+  transition: 0.3s;
+}
+
+.toggle-password:hover {
+  color: var(--primary);
+}
+
+/* =====================================================
+   REMEMBER
+===================================================== */
+
+.remember {
+  display: flex;
+
+  justify-content: flex-start;
+
+  align-items: center;
+
+  margin-bottom: 25px;
+
+  font-size: 14px;
+
+  color: #666;
+}
+
+.remember input {
+  margin-right: 8px;
+
+  accent-color: var(--primary);
+}
+
+/* =====================================================
+   SUBMIT BUTTON
+===================================================== */
+
+.submit-btn {
+  width: 100%;
+
+  height: 58px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  cursor: pointer;
+
+  color: white;
+
+  font-size: 16px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.5px;
+
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.submit-btn:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 15px 35px rgba(255, 75, 75, 0.35);
+}
+
+.submit-btn:active {
+  transform: scale(0.98);
+}
+
+/* =====================================================
+   SWITCH BUTTON
+===================================================== */
+
+.content button {
+  position: relative;
+
+  overflow: hidden;
+}
+
+/* =====================================================
+   RIPPLE EFFECT
+===================================================== */
+
+button {
+  position: relative;
+
+  overflow: hidden;
+}
+
+.ripple {
+  position: absolute;
+
+  width: 20px;
+
+  height: 20px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.45);
+
+  transform: scale(0);
+
+  animation: ripple 0.6s linear;
+
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(14);
+
+    opacity: 0;
+  }
+}
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+#toast {
+  position: fixed;
+
+  top: 25px;
+
+  right: 25px;
+
+  min-width: 260px;
+
+  padding: 16px 22px;
+
+  border-radius: 12px;
+
+  background: #222;
+
+  color: white;
+
+  font-size: 14px;
+
+  font-weight: 500;
+
+  opacity: 0;
+
+  transform: translateY(-30px);
+
+  transition: 0.35s;
+
+  z-index: 9999;
+
+  pointer-events: none;
+}
+
+#toast.show {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+/* =====================================================
+   SCROLLBAR
+===================================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+
+  border-radius: 20px;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 900px) {
+  body {
+    overflow: auto;
+
+    padding: 25px;
+  }
+
+  .container {
+    flex-direction: column;
+
+    width: 100%;
+
+    max-width: 550px;
+
+    height: auto;
+  }
+
+  .left-panel {
+    width: 100%;
+
+    min-height: 250px;
+  }
+
+  .right-panel {
+    min-height: 560px;
+
+    padding: 40px 25px;
+  }
+
+  .content h1 {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    border-radius: 20px;
+  }
+
+  .content {
+    width: 90%;
+  }
+
+  .content h1 {
+    font-size: 28px;
+  }
+
+  .content p {
+    font-size: 14px;
+  }
+
+  .form {
+    max-width: 100%;
+  }
+
+  .form h2 {
+    font-size: 28px;
+
+    margin-bottom: 28px;
+  }
+
+  .input-group input {
+    height: 54px;
+  }
+
+  .submit-btn {
+    height: 54px;
+  }
+}

@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="dashboard.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- ===================== SIDEBAR ===================== -->
+
+    <aside class="sidebar">
+      <div class="logo">
+        <i class="fa-solid fa-layer-group"></i>
+
+        <h2>Auth UI</h2>
+      </div>
+
+      <ul>
+        <li class="active">
+          <i class="fa-solid fa-house"></i>
+
+          <span>Dashboard</span>
+        </li>
+
+        <li>
+          <i class="fa-solid fa-user"></i>
+
+          <span>Profile</span>
+        </li>
+
+        <li>
+          <i class="fa-solid fa-gear"></i>
+
+          <span>Settings</span>
+        </li>
+      </ul>
+
+      <button id="logoutBtn">
+        <i class="fa-solid fa-right-from-bracket"></i>
+
+        Logout
+      </button>
+    </aside>
+
+    <!-- ===================== MAIN ===================== -->
+
+    <main class="main">
+      <!-- Top Bar -->
+
+      <div class="topbar">
+        <h1>
+          Welcome,
+          <span id="username"></span>
+          👋
+        </h1>
+      </div>
+
+      <!-- Statistics Cards -->
+
+      <section class="cards">
+        <div class="card">
+          <i class="fa-solid fa-users"></i>
+
+          <h2 id="usersCount">0</h2>
+
+          <p>Total Users</p>
+        </div>
+
+        <div class="card">
+          <i class="fa-solid fa-circle-check"></i>
+
+          <h2>Active</h2>
+
+          <p>Account Status</p>
+        </div>
+
+        <div class="card">
+          <i class="fa-solid fa-calendar-days"></i>
+
+          <h2 id="today"></h2>
+
+          <p>Today's Date</p>
+        </div>
+      </section>
+
+      <!-- User Information -->
+
+      <section class="profile">
+        <h2>User Information</h2>
+
+        <p>
+          <strong>Name:</strong>
+
+          <span id="name"></span>
+        </p>
+
+        <p>
+          <strong>Email:</strong>
+
+          <span id="email"></span>
+        </p>
+
+        <p>
+          <strong>User ID:</strong>
+
+          <span id="userid"></span>
+        </p>
+      </section>
+    </main>
+
+    <script src="dashboard.js"></script>
+    <!-- Logout Modal -->
+
+    <div class="modal" id="logoutModal">
+      <div class="modal-content">
+        <div class="modal-icon">
+          <i class="fa-solid fa-circle-check"></i>
+        </div>
+
+        <h2>Logged Out</h2>
+
+        <p>You have been logged out successfully.</p>
+
+        <button id="continueBtn">Continue</button>
+      </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+  </body>
+</html>
