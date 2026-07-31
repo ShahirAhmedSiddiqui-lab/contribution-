@@ -67,11 +67,17 @@
       <!-- Top Bar -->
 
       <div class="topbar">
-        <h1>
-          Welcome,
-          <span id="username"></span>
-          👋
-        </h1>
+        <div class="topbar-left">
+          <button id="menuBtn" class="menu-btn" aria-label="Toggle menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+          <h1>
+            Welcome,
+            <span id="username"></span>
+            👋
+          </h1>
+        </div>
       </div>
 
       <!-- Statistics Cards -->
@@ -127,7 +133,6 @@
       </section>
     </main>
 
-    <script src="dashboard.js"></script>
     <!-- Logout Modal -->
 
     <div class="modal" id="logoutModal">
@@ -143,6 +148,8 @@
         <button id="continueBtn">Continue</button>
       </div>
     </div>
+
+    <div class="overlay" id="overlay"></div>
 
     <script src="dashboard.js"></script>
   </body>
