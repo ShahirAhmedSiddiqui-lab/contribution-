@@ -208,7 +208,7 @@ body {
 }
 
 .content h1 {
-  font-size: 42px;
+  font-size: clamp(26px, 6vw, 42px);
 
   font-weight: 700;
 
@@ -224,9 +224,9 @@ body {
 }
 
 .content button {
-  width: 190px;
+  width: min(190px, 80%);
 
-  height: 55px;
+  height: clamp(48px, 6vh, 55px);
 
   border: none;
 
@@ -238,7 +238,7 @@ body {
 
   color: var(--primary);
 
-  font-size: 15px;
+  font-size: clamp(14px, 2vw, 15px);
 
   font-weight: 600;
 
@@ -318,13 +318,15 @@ body {
 ===================================================== */
 
 .form h2 {
-  font-size: 34px;
+  font-size: clamp(24px, 4.5vw, 34px);
 
   color: var(--text);
 
   font-weight: 700;
 
   margin-bottom: 35px;
+
+  text-align: center;
 }
 
 /* =====================================================
@@ -480,7 +482,7 @@ body {
 .submit-btn {
   width: 100%;
 
-  height: 58px;
+  height: clamp(52px, 6vh, 58px);
 
   border: none;
 
@@ -490,7 +492,7 @@ body {
 
   color: white;
 
-  font-size: 16px;
+  font-size: clamp(15px, 2vw, 16px);
 
   font-weight: 600;
 
@@ -647,10 +649,6 @@ button {
 
     padding: 40px 25px;
   }
-
-  .content h1 {
-    font-size: 32px;
-  }
 }
 
 @media (max-width: 600px) {
@@ -658,16 +656,18 @@ button {
     border-radius: 20px;
   }
 
+  .right-panel {
+    min-height: 520px;
+
+    padding: 35px 20px;
+  }
+
   .content {
     width: 90%;
   }
 
-  .content h1 {
-    font-size: 28px;
-  }
-
-  .content p {
-    font-size: 14px;
+  .content {
+    width: 90%;
   }
 
   .form {
@@ -675,16 +675,74 @@ button {
   }
 
   .form h2 {
-    font-size: 28px;
-
     margin-bottom: 28px;
   }
 
   .input-group input {
     height: 54px;
   }
+}
 
-  .submit-btn {
-    height: 54px;
+@media (max-width: 480px) {
+  body {
+    padding: 15px;
+  }
+
+  .blob1 {
+    width: 240px;
+    height: 240px;
+  }
+
+  .blob2 {
+    width: 280px;
+    height: 280px;
+  }
+
+  .container {
+    border-radius: 16px;
+  }
+
+  .left-panel {
+    min-height: 180px;
+  }
+
+  .content h1 {
+    margin-bottom: 12px;
+  }
+
+  .content p {
+    margin-bottom: 22px;
+  }
+
+  .right-panel {
+    min-height: 500px;
+
+    padding: 30px 16px;
+  }
+
+  .input-group {
+    margin-bottom: 20px;
+  }
+
+  .input-group input {
+    height: 52px;
+
+    padding-left: 44px;
+  }
+
+  #toast {
+    left: 15px;
+
+    right: 15px;
+
+    top: 15px;
+
+    min-width: 0;
+
+    text-align: center;
+
+    font-size: 13px;
+
+    padding: 14px 16px;
   }
 }
